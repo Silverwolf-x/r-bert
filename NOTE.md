@@ -219,7 +219,7 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
   # tensor([False,  True,  True,  True])
   ```
 
-  ![mask_vector](https://github.com/Silverwolf-x/r-bert/assets/104623550/b8206622-bea1-4822-8747-5710f1dc731b)
+  ![mask_vector](https://github-production-user-asset-6210df.s3.amazonaws.com/104623550/249470412-b8206622-bea1-4822-8747-5710f1dc731b.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230628T134516Z&X-Amz-Expires=300&X-Amz-Signature=3d66c1bc75ed224f84ea5b7e4c1c8840cf277173d9334799aadd640d40c2413f&X-Amz-SignedHeaders=host&actor_id=104623550&key_id=0&repo_id=659552517)
 
   > tensor，numpy有这种方法，list，tuple没有。其中tensor的bool转换需用`x.float()`，numpy需用`x.astype(float)`。
 
@@ -272,7 +272,7 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
 
 本部分的示意图如下：
 
-![element_wise](https://github.com/Silverwolf-x/r-bert/assets/104623550/04c3544e-400e-4926-bc29-4be36b98d735)
+![element_wise](https://github-production-user-asset-6210df.s3.amazonaws.com/104623550/249471100-04c3544e-400e-4926-bc29-4be36b98d735.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230628T134447Z&X-Amz-Expires=300&X-Amz-Signature=c15db7d114f19c4a4ff4c61086d002646fa203b9ff3799b36b75f56d1ee71242&X-Amz-SignedHeaders=host&actor_id=104623550&key_id=0&repo_id=659552517)
 
 其中`mask.unsqueeze(-1)`的理解，即(2,3)-->(2,3,1)的理解：
 
@@ -286,11 +286,11 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
 
 ## 随笔与致谢
 
-这是现在我想深度学习领域踏出的第一步。无论未来我是否从事这个领域，希望未来当我遇到困难时，不要忘记这一段时间，痛苦且快乐的代码时光。与未来的自己共勉！
+这是现在我向深度学习领域踏出的第一步。无论未来我是否从事这个领域，希望未来当我遇到困难时，不要忘记这一段时间，痛苦且快乐的代码时光。与未来的自己共勉！
 
 大二下期末周第一周周三考完寿险精算，到期末周第二周周二，致我逝去的青春（
 
-很累，一个人看论文，代码思考，代码优化 ，调试，以及后期的画图，写作，上擦混github，有很多的事情是第一次尝试，第一次摸索。很感谢有这样一个机会，让我近乎疯狂的与代码搏斗，还好随后险胜。写完代码，我深刻体会到码农的辛苦。老了，肝不动了。希望不要这么快头秃。以后也不会有精力去写这么详细的分析了，太累了，热情损耗的台快了，有点吃不消。
+很累，一个人看论文，代码思考，代码优化 ，调试，以及后期的画图，写作，上传到github，有很多的事情是第一次尝试，第一次摸索。很感谢有这样一个机会，让我近乎疯狂的与代码搏斗，还好随后险胜。写完代码，我深刻体会到码农的辛苦。老了，肝不动了。希望不要这么快头秃。以后也不会有精力去写这么详细的分析了，太累了，热情损耗的台快了，有点吃不消。
 
 **致谢**
 
