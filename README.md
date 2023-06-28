@@ -28,16 +28,6 @@
 此外，运行`main.py`后，程序会新建`logs`文件夹生成运行日志和结果，新建`run`文件夹记录运行后模型的参数。多次训练记得处理旧文件，以免占用太大空间。
 
 ## 特点
-
-相比于本人之前的深度学习代码，本次项目的进步如下：
-
-- 使用ipynb初步编程，并最后模块化拆分到各个.py文件
-- 更改accuracy判断方式
-- 增加log日志输出
-- 优化各部分架构，引进checkpoint机制
-
-**难点突破**：
-
 - 在`TextDataset.__init__`中使用正则表达式提取目标文本
 - 在model中使用`torch.mul()`对应元素相乘*（又称element-wise product、 element-wise multiplication或 Hadamard product）*，借助**boardcast机制**在batch中提取**entity**向量，避免使用循环（现在还没找到batch的map函数）
 
