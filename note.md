@@ -23,7 +23,7 @@
 
 ## 1. 数据集和模型的下载
 
-`main.py ` - `get_pretrain()`
+[`main.py`](https://github.com/Silverwolf-x/r-bert/blob/master/code/main.py) --- `get_pretrain()`
 
 **bert-base-uncased**模型通过huggingface的`transformers`包的`AutoTokenizer`, `AutoModel`下载。
 
@@ -35,7 +35,7 @@
 
 ## 2. 数据集处理
 
-`data_load.py`
+[`data_load.py`](https://github.com/Silverwolf-x/r-bert/blob/master/code/main.py)
 
 数据集中的关键文件是`TRAIN_FILE.TXT`，`TEST_FILE_FULL.TXT`。他们的样式如下：
 
@@ -62,7 +62,7 @@ Comment: (a) is satisfied
 
 ## 难点：确定tokenize后entity对应的词向量位置
 
-`data_load.py` - `find_pos()`
+[`data_load.py`](https://github.com/Silverwolf-x/r-bert/blob/master/code/main.py) --- `find_pos()`
 
 根据单词的长度，是否在全量词表*(vocabulary)*中等因素，一个单词tokenize后可能会拆分为多个词向量。因此index极易错位。
 
@@ -117,7 +117,7 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
 
 ## 3. 模型搭建
 
-`model.py`
+[`model.py`](https://github.com/Silverwolf-x/r-bert/blob/master/code/model.py)
 
 承接`TextDataset`输出中的字典部分，立刻得到**BERT**预训练模型的输出，其中有以下方法调用。
 
@@ -196,7 +196,7 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
 
 ## 难点：在batch中提取**entity**向量部分
 
-`model.py` - `entity_average()`
+[`model.py`](https://github.com/Silverwolf-x/r-bert/blob/master/code/model.py) --- entity_average()
 
 前文提及，一个单词tokenize后的编码*（又称encoder、input_ids）*可能不唯一，而**BERT**输出的词向量（**word embedding**）个数与输入编码的个数一一对应。前文已经得到了目标词的词向量位置，现在的问题本质同前一个难点，都可以归结为：
 
@@ -208,7 +208,9 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
 
 思路2：借用mask0-1向量，并使用tensor乘法提取出**entity**部分。
 
-### 1）**mask vector**:：将位置index转换为0-1向量，有两种方法：
+### 1）**mask vector**:将位置index转换为0-1向量
+
+有两种方法：
 
 - 借助for循环，为`torch,zeros()`指定区域赋值为1
 
@@ -280,7 +282,7 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
 
 ## 4. 评分
 
-`scorer.py`
+[`scorer.py`](https://github.com/Silverwolf-x/r-bert/blob/master/code/scorer.py)
 
 数据集的标准打分文件是2010年的perl文件，需要perl环境。本人试图把这个文件转换为主流的是python文件，但由于本人呢看不懂，难以喂给GPT，且其打分过程还有随机的skip。因此只能用`sklearn.metrics.f1_score`计算排除掉Other类的macro打分，以近似替代原结果。
 
