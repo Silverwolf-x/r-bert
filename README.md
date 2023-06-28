@@ -5,7 +5,7 @@
 本文档介绍仓库详情，以及记录各部分代码编写的心路历程
 
 <p float="left" align="center">
-    <img width="600" src="https://user-images.githubusercontent.com/28896432/68673458-1b090d00-0597-11ea-96b1-7c1453e6edbb.png" />  
+    <img width="600" src="https://user-images.githubusercontent.com/28896432/68673458-1b090d00-0597-11ea-96b1-7c1453e6edbb.png" />
 </p>
 
 ##  使用须知
@@ -20,9 +20,9 @@
 - model：**bert-uncased-base**预训练模型。详见[Hugging Face](https://www.huggingface.co./bert-base-uncased)
 - SemEval2010_task8_all_data： **SemEval-2010 Task 8**原始数据集。地址[Github](https://github.com/JoelNiklaus/SemEval2010Task8/)
 
+- `Enriching Pre-trained Language Model with Entity Information for Relation Classification.pdf`：本项目复现的目标论文
 - `requirements.txt`：python包依赖
 - `NOTE.md`：记录了coding的心路历程，编写逻辑和运行原理
-
 - `*.py`：各个python文件，具体讲解见`NOTE.md`
 
 此外，运行`main.py`后，程序会新建`logs`文件夹生成运行日志和结果，新建`run`文件夹记录运行后模型的参数。
@@ -49,5 +49,4 @@
 
 - 感谢中国人民大学明德地下机房提供的RTX3080显卡支持。
 
-- 感谢自己的认真、坚持和毅力，始终对这个项目不离不弃。
-
+- 感谢自己的认真、坚持和毅力
