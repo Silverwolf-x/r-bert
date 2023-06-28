@@ -5,14 +5,13 @@ log/
 logs/
 result/
 run/
-model/
+
 *.pdf/
 *.ipynb
 test.py
 *.docx
-*.json
 tempCodeRunnerFile.*
-.gitignore
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
