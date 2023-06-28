@@ -23,9 +23,9 @@
 - `Enriching Pre-trained Language Model with Entity Information for Relation Classification.pdf`：本项目复现的目标论文
 - `requirements.txt`：python包依赖
 - `NOTE.md`：记录了coding的心路历程，编写逻辑和运行原理
-- `*.py`：各个python文件，具体讲解见`NOTE.md`
+- `*.py`：各个python文件，具体讲解见[NOTE.md](https://github.com/Silverwolf-x/r-bert/blob/master/NOTE.md)
 
-此外，运行`main.py`后，程序会新建`logs`文件夹生成运行日志和结果，新建`run`文件夹记录运行后模型的参数。
+此外，运行`main.py`后，程序会新建`logs`文件夹生成运行日志和结果，新建`run`文件夹记录运行后模型的参数。多次训练记得处理旧文件，以免占用太大空间。
 
 ## 特点
 
