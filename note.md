@@ -221,7 +221,8 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
   # tensor([False,  True,  True,  True])
   ```
 
-  ![mask_vector](https://github-production-user-asset-6210df.s3.amazonaws.com/104623550/249470412-b8206622-bea1-4822-8747-5710f1dc731b.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230628T134516Z&X-Amz-Expires=300&X-Amz-Signature=3d66c1bc75ed224f84ea5b7e4c1c8840cf277173d9334799aadd640d40c2413f&X-Amz-SignedHeaders=host&actor_id=104623550&key_id=0&repo_id=659552517)
+  ![mask_vector](https://github-production-user-asset-6210df.s3.amazonaws.com/104623550/249540560-60f68896-86f0-4681-b2b9-2264c37f471f.png)
+
 
   > tensor，numpy有这种方法，list，tuple没有。其中tensor的bool转换需用`x.float()`，numpy需用`x.astype(float)`。
 
@@ -274,7 +275,7 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
 
 本部分的示意图如下：
 
-![element_wise](https://github-production-user-asset-6210df.s3.amazonaws.com/104623550/249471100-04c3544e-400e-4926-bc29-4be36b98d735.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230628%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230628T134447Z&X-Amz-Expires=300&X-Amz-Signature=c15db7d114f19c4a4ff4c61086d002646fa203b9ff3799b36b75f56d1ee71242&X-Amz-SignedHeaders=host&actor_id=104623550&key_id=0&repo_id=659552517)
+![element_wise](https://github-production-user-asset-6210df.s3.amazonaws.com/104623550/249542085-91e36493-08d2-42dc-aeaf-5bf8f4b1f757.png)
 
 其中`mask.unsqueeze(-1)`的理解，即(2,3)-->(2,3,1)的理解：
 
@@ -308,7 +309,7 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
 
 6.21与vscode的github连接斗智斗勇
 
-6.22开始处理原数据txt转json
+6.22开始处理原数据txt转json，但后来放弃了，没必要应转换成字典来输入。不过这也启发我用字典传输变量，尤其是导入函数，方便快捷。
 
 6.23完成所有code，8;00-23:00的含金量！
 
