@@ -219,7 +219,7 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
   # tensor([False,  True,  True,  True])
   ```
 
-  ![mask vector](C:\Users\John\Desktop\mask_vector.png)
+  ![mask_vector](https://github.com/Silverwolf-x/r-bert/assets/104623550/b8206622-bea1-4822-8747-5710f1dc731b)
 
   > tensor，numpy有这种方法，list，tuple没有。其中tensor的bool转换需用`x.float()`，numpy需用`x.astype(float)`。
 
@@ -272,7 +272,7 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
 
 本部分的示意图如下：
 
-![mask vector](C:\Users\John\Desktop\element_wise.png)
+![element_wise](https://github.com/Silverwolf-x/r-bert/assets/104623550/04c3544e-400e-4926-bc29-4be36b98d735)
 
 其中`mask.unsqueeze(-1)`的理解，即(2,3)-->(2,3,1)的理解：
 
