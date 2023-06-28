@@ -6,13 +6,14 @@ logs/
 result/
 run/
 model/
-*.pdf
+*.pdf/
 *.ipynb
 test.py
 *.docx
 *.json
-tempCodeRunnerFile.py
-tempCodeRunnerFile.python
+tempCodeRunnerFile.*
+.gitignore
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
