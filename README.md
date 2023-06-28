@@ -24,11 +24,11 @@
 - code：运行程序的所有代码、数据集和预训练模型
   - model：**bert-uncased-base**预训练模型。详见[Hugging Face](https://www.huggingface.co./bert-base-uncased)
   - SemEval2010_task8_all_data： **SemEval-2010 Task 8**原始数据集。地址[Github](https://github.com/JoelNiklaus/SemEval2010Task8/)
-  - `*.py`：源码文件，具体思路详见[NOTE.md](https://github.com/Silverwolf-x/r-bert/blob/master/NOTE.md)
+  - `*.py`：源码文件，具体思路详见[note.md](https://github.com/Silverwolf-x/r-bert/blob/master/note.md)
 
 - `Enriching Pre-trained Language Model with Entity Information for Relation Classification.pdf`：本项目复现的目标论文
 - `requirements.txt`：python包依赖
-- `NOTE.md`：记录了coding的心路历程，编写逻辑和运行原理
+- `note.md`：记录了coding的心路历程，编写逻辑和运行原理
 
 ## 特点
 - 在`TextDataset.__init__`中使用正则表达式提取目标文本
