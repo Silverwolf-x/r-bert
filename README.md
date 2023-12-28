@@ -8,8 +8,8 @@
 
 ##  使用须知
 
-1. 需要python\>=3.6环境依赖
-2. 使用命令行`pip install -r requirements.txt`安装包
+1. 需要python\>=3.8环境依赖
+2. 使用命令行`pip install -r requirements.txt`安装包。其中在[pytorch官网](https://pytorch.org/)中下载cuda版本torch
 3. 本仓库所有文件一共500MB左右，运行一次程序后保存的模型参数大小约为1GB
 4. 使用**RTX3080**运行一次（5个epoch）需要约5分钟
 
