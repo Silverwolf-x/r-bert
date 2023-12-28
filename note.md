@@ -287,6 +287,45 @@ re.search(r'\$ ([\w\-]+(?: [\w\-]+)*) \$', text).group()
 
 数据集的标准打分文件是2010年的perl文件，需要perl环境。本人试图把这个文件转换为主流的是python文件，但由于本人呢看不懂，难以喂给GPT，且其打分过程还有随机的skip。因此只能用`sklearn.metrics.f1_score`计算排除掉Other类的macro打分，以近似替代原结果。
 
+## 5. 改进：Linear + Warmup + Decay
+
+R-BERT论文中使用了固定学习率`lr = 2e-5`。实际上学习率应该有一个调整策略：
+
+预热（warnup），即一开始训练时lr按照一定规律增大，使得模型尽快收敛。之后随着epoch增加，按照一定规律衰减（decay）防止后期过拟合。
+
+![Alt text](https://pic2.zhimg.com/v2-e33b13a40632425c6e9ec680d13bcf29_r.jpg)
+
+torch提供了如下衰减decay的调用函数，都隶属于`torch.optim.lr_scheduler.xxx`
+
+参考https://blog.csdn.net/shanglianlm/article/details/85143614
+
+||函数|衰减公式|
+|-|-|-|
+|指数衰减|`ExponentialLR(optimizer, gamma)`|$lr_{new}=lr_{old}\times \gamma ^{epoch}$|
+|阶梯衰减|`StepLR(optimizer, step_size, gamma=0.1)`|$lr_{new}=lr_{old}\times \gamma ^{epoch/step\_size}$|
+|自定义调整|`LambdaLR(optimizer, lr_lambda)`|$lr_{new}=lr_{old}\times \Lambda(epoch)$|
+|自适应调整|`ReduceLROnPlateau(optimizer, ...)`|当某指标不再变化时调整|
+
+> mode='min'	模式选择，有 min 和 max 两种模式， min 表示当指标不再降低(如监测loss)， max 表示当指标不再升高(如监测 accuracy)。
+>
+> factor=0.1	学习率调整倍数(等同于其它方法的 gamma)，即学习率更新为 lr = lr * factor
+>
+> patience=10	忍受该指标多少个 step 不变化，当忍无可忍时，调整学习率。
+>
+> verbose=False	是否打印学习率信息， print(‘Epoch {:5d}: reducing learning rate of group {} to {:.4e}.’.format(epoch, i, new_lr))
+>
+> threshold_mode='rel'	选择判断指标是否达最优的模式，有两种模式， rel 和 abs。
+>
+> threshold=0.0001	配合 threshold_mode 使用。
+>
+> cooldown=0	冷却时间“，当调整学习率之后，让学习率调整策略冷静一下，让模型再训练一段时间，再重启监测模式。
+>
+> min_lr=0	学习率下限，可为 float，或者 list，当有多个参数组时，可用 list 进行设置。
+>
+> eps=1e-08	学习率衰减的最小值，当学习率变化小于 eps 时，则不调整学习率。
+
+
+
 ## 随笔与致谢
 
 这是现在我向深度学习领域踏出的第一步。无论未来我是否从事这个领域，希望未来当我遇到困难时，不要忘记这一段时间，痛苦且快乐的代码时光。与未来的自己共勉！
