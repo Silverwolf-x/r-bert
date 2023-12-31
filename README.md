@@ -15,20 +15,23 @@
 
 ## 运行方式
 
-使用命令`python main.py`或者使用IDE（如VScode）打开`main.py`运行
+- 在[github release](https://github.com/Silverwolf-x/r-bert/releases)中下载`model.zip`并解压缩至`code`文件夹下
 
-运行`main.py`后，程序会新建`logs`文件夹生成运行日志和结果，新建`run`文件夹记录运行后模型的参数。多次训练记得处理旧文件，以免占用太大空间。
+- 使用命令`python run.py`或者使用IDE（如VScode）打开`run.py`运行
+
+- 运行`run.py`后，程序会新建`logs`文件夹生成运行日志和结果，新建`run`文件夹记录运行后模型的参数。多次训练记得处理旧文件，以免占用太大空间。
 
 ## 仓库详情
 
 - code：运行程序的所有代码、数据集和预训练模型
-  - model：**bert-uncased-base**预训练模型。详见[Hugging Face](https://www.huggingface.co./bert-base-uncased)
+  - model：**bert-uncased-base**预训练模型。来源[Hugging Face](https://www.huggingface.co./bert-base-uncased)，副本在[github release](https://github.com/Silverwolf-x/r-bert/releases)中，请下载并解压缩至`code`文件夹下
   - SemEval2010_task8_all_data： **SemEval-2010 Task 8**原始数据集。地址[Github](https://github.com/JoelNiklaus/SemEval2010Task8/)
   - `*.py`：源码文件，具体思路详见[note.md](https://github.com/Silverwolf-x/r-bert/blob/master/note.md)
 
 - `Enriching Pre-trained Language Model with Entity Information for Relation Classification.pdf`：本项目复现的目标论文
 - `requirements.txt`：python包依赖
 - `note.md`：记录了coding的心路历程，编写逻辑和运行原理
+- ` run.py`：一键运行脚本
 
 ## 特点
 - 在`TextDataset.__init__`中使用正则表达式提取目标文本
