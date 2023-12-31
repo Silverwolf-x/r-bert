@@ -3,13 +3,20 @@
 from sklearn.metrics import f1_score, classification_report, confusion_matrix
 from data_load import label_coder
 import numpy as np
-
+import warnings
+warnings.filterwarnings("ignore")
 # SCORER_FILE="SemEval2010_task8_all_data\SemEval2010_task8_scorer-v1.2\semeval2010_task8_scorer-v1.2.pl"
 # SCORER_FILE=os.path.abspath(SCORER_FILE)
 
 def report(num_labels, num_preds):
     num_to_label, _ = label_coder()
-    return classification_report(num_labels, num_preds, target_names = num_to_label)
+    try:
+        return classification_report(num_labels, num_preds, target_names = num_to_label)
+    except ValueError as e:
+        error = e.args[0]
+        print(error) 
+        return error
+    
 def cm(num_labels, num_preds):
     # avoid matrix output ugly since 1 row could be divided into 2
     np.set_printoptions(linewidth=np.inf, precision=0, suppress=True)
